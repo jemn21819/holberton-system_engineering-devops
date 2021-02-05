@@ -3,6 +3,6 @@
 
 i=1
 while [ "$i" -le 10 ]; do
-	echo "Holberton Scool"
+	echo "Holberton School"
 	let i=$i+1
 done
