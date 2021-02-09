@@ -34,7 +34,7 @@ int main(void)
 		else if (zombie == 0)
 			exit(0);
 		else
-			printf("Zombie process created, PID: %ld\n",
+			printf("Zombie process created, PID: %d\n",
 					zombie);
 	}
 	return (infinite_while());
