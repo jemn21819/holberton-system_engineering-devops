@@ -16,28 +16,21 @@ int infinite_while(void)
 	return (0);
 }
 
-/**
- * main - program that creates 5 zombie processes.
- * Return: value of process of infinite while
- */
 int main(void)
 {
-	int stat, i;
-	pid_t zombie[5];
+	pid_t zombie;
+	size_t i;
 
 	for (i = 0; i < 5; i++)
 	{
-		zombie[i] = fork();
-		if (zombie[i] == 0)
-		{
-			printf("Zombie process created, PID: %d\n", getpid());
+		zombie = fork();
+		if (zombie < 0)
+			perror("fork");
+		else if (zombie == 0)
 			exit(0);
-		}
+		else
+			printf("Zombie process created, PID: %ld\n",
+					(long) zombie);
 	}
-	sleep(100);
-	while (--i > 0)
-		zombie[i] = wait(&stat);
-	infinite_while();
-
-	return (0);
+	return (infinite_while());
 }
