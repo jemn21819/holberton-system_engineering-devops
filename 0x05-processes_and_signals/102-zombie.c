@@ -16,6 +16,11 @@ int infinite_while(void)
 	return (0);
 }
 
+/**
+ * main - create a 5 child process
+ * Return: infinite while
+ */
+
 int main(void)
 {
 	pid_t zombie;
