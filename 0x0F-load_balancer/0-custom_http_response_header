@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Configure Nginx so that its HTTP response contains a custom
+# header (on web-01 and web-02)
+
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo echo "Holberton School" | sudo tee /var/www/html/index.html
+redirect="\\\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
+sudo sed -i "35i $redirect" /etc/nginx/sites-available/default
+sudo echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
+error_msg="\\\terror_page 404 /404.html;\n\tlocation = /404.html {\n\t\troot /var/www/html;\n\t\tinternal;\n\t}"
+sudo sed -i "36i $error_msg" /etc/nginx/sites-available/default
+sudo sed -i "23i \\\tadd_header X-Served-By \$hostname;" /etc/nginx/sites-available/default
+sudo service nginx restart
