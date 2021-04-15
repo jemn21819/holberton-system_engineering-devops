@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Script with the minimum number of commands to automate your
+# listening on port 80
+
+sed -i 's/listen 8080 default_server;/listen 80;/' /etc/nginx/sites-enabled/default
+sed -i 's/listen \[::\]:8080 default_server ipv6only=on;/server_name localhost;/' /etc/nginx/sites-enabled/default
+service nginx restart
