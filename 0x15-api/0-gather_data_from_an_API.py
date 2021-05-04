@@ -10,7 +10,7 @@ if __name__ == '__main__':
     employee_id = int(argv[1])
     user = requests.get('https://jsonplaceholder.typicode.com/users/{}'.
                         format(employee_id)).json()
-    todo = requests.get('https://jsonplaceholder.typicode.com/todos?userID={}'.
+    todo = requests.get('https://jsonplaceholder.typicode.com/todos?userId={}'.
                         format(employee_id)).json()
     task_done = []
     for task in todo:
