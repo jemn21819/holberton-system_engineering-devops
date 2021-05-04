@@ -28,6 +28,6 @@ if __name__ == '__main__':
         for task in todo:
             data.writerow(
                 [employee_id,
-                    user.get('username'),
-                    task.get('completed'),
-                    task.get('title')])
+                 user.get('username'),
+                 task.get('completed'),
+                 task.get('title')])
