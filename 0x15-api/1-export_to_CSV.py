@@ -3,9 +3,8 @@
 Module that use a REST API, for a given employee ID, returns information about
 his/her TODO list progress
 """
-
-import requests
 import csv
+import requests
 from sys import argv
 
 if __name__ == '__main__':
@@ -24,7 +23,7 @@ if __name__ == '__main__':
     for done in task_done:
         print("\t {}".format(done))
 
-    with open('{}.csv'.format(argv[1]), "w") as csv_f:
+    with open('{}.csv'.format(employee_id), "w") as csv_f:
         data = csv.writer(csv_f, quoting=csv.QUOTE_ALL)
         for task in todo:
             data.writerow(
