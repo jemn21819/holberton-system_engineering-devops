@@ -14,15 +14,6 @@ if __name__ == '__main__':
     todo = requests.get('https://jsonplaceholder.typicode.com/todos?userId={}'.
                         format(employee_id)).json()
 
-    task_done = []
-    for task in todo:
-        if task.get('completed') is True:
-            task_done.append(task.get('title'))
-    print("Employee {} is done with tasks({}/{}):".
-          format(user.get('name'), len(task_done), len(todo)))
-    for done in task_done:
-        print("\t {}".format(done))
-
     with open('{}.csv'.format(employee_id), "w") as csv_f:
         data = csv.writer(csv_f, quoting=csv.QUOTE_ALL)
         for task in todo:
