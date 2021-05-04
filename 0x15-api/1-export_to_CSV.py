@@ -3,7 +3,8 @@
 Module that use a REST API, for a given employee ID, returns information about
 his/her TODO list progress
 """
-import requests, csv
+import requests
+import csv
 from sys import argv
 
 if __name__ == '__main__':
