@@ -9,7 +9,7 @@ import requests
 
 def top_ten(subreddit):
     """queries the Reddit API"""
-    agent = {'User-agent': 'Marisol2201'}
+    agent = {'User-agent': 'James1986'}
     url = "https://www.reddit.com/r/" + subreddit + "/hot.json?limit=10"
     req = requests.get(url, headers=agent)
     subs = req.json()
